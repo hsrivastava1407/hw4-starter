@@ -1,0 +1,16 @@
+High-level description of the code
+
+The program trains a special recurrent neural network which is LSTM to generate text one character at a time. Long Short-Term Memory (LSTM) is an advanced type of Recurrent Neural Network (RNN) designed to remember 
+past information over long sequences and solve the vanishing gradient problem. It learns from ten short sentences, such as “I like cats.” and “I like dogs.” 
+It converts characters into numerical IDs and creates training examples where 40 characters are used to predict the next character.
+The model uses an embedding layer to represent characters, an LSTM layer to learn patterns in their order, and an output layer to score possible next characters. 
+It turns characters into numbers, learns patterns in their order, and predicts which character might come next.
+It trains for 20 epochs. To generate text, it repeatedly predicts and selects a character, adds it to the output, and uses the updated context for the next prediction.
+
+Behavior of the demo
+
+The demo prints the training text’s length, its unique characters, the number of training examples, and the final training loss.
+Then, it generates text starting with “I like ” at four temperatures: 0.1, 0.5, 0.7, and 1.0. 
+For each temperature, it displays the five most likely first characters and their probabilities, followed by 180 generated characters.
+Lower temperatures allow more likely characters, which makes the output more predictable. 
+Higher temperatures allow more variety but can produce unusual combinations. The model is trained once and reused for all four temperatures.
